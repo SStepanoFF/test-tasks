@@ -22,22 +22,26 @@ public class Duplicates {
 
         System.out.println(list.stream().reduce(Integer::sum).get());
 
-        Duplicates duplicates=new Duplicates();
+        Duplicates duplicates = new Duplicates();
 
         System.out.println(duplicates.repeatedNumber(list));
         System.out.println(duplicates.repeatedNumberMap(list));
         System.out.println(duplicates.repeatedNumberMax(list));
-;
+        ;
+    }
+
+    public static int rrr(int[] arr, int n) {
+        return (int) Arrays.stream(arr).filter(i -> i == n).count();
     }
 
     public List<Integer> repeatedNumber(final List<Integer> list) {
         List<Integer> res = new ArrayList<>();
         Map<Integer, Integer> map = new HashMap<>();
         Collections.sort(list);
-        for(int i=0; i<list.size()-1; i++) {
-            if(list.get(i)==list.get(i+1) || res.contains(list.get(i))){
+        for (int i = 0; i < list.size() - 1; i++) {
+            if (list.get(i) == list.get(i + 1) || res.contains(list.get(i))) {
                 res.add(list.get(i));
-                map.put(list.get(i), Optional.ofNullable(map.get(list.get(i))).map(e->e+1).orElse(1));
+                map.put(list.get(i), Optional.ofNullable(map.get(list.get(i))).map(e -> e + 1).orElse(1));
             }
         }
         System.out.println(map);

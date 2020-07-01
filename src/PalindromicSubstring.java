@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class PolindromicSubstring {
+public class PalindromicSubstring {
 
     public static void main(String[] args) {
         String s = "ccc";

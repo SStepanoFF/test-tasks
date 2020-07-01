@@ -1,9 +1,11 @@
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class BinarySearch {
 
     public static void main(String[] args) {
-        System.out.println("!!"+"apple".compareTo("banana"));
+        System.out.println("!!" + "apple".compareTo("banana"));
         List<Integer> list = Arrays.asList(3, 4, 5, 8, 11, 14);
         int[] arr = {1, 3, 5, 6, 12, 16};
         int[] intArray = new int[2];
@@ -14,10 +16,16 @@ public class BinarySearch {
 
 
         System.out.println("Index of element: " + list.indexOf(3));
-        System.out.println("BinSearch element: " + binSearch(3, list));
+        System.out.println("BinSearch element: " + binSearch(4, list));
+
+        System.out.println("Stream search element index: " + getElementIndexStream(2, list));
 
         Collections.sort(list);
         System.out.println("BinSearch recursion element: " + binarySearchRecur(3, 0, list.size() - 1, list));
+    }
+
+    private static int getElementIndexStream(int n, List<Integer> list) {
+        return list.stream().filter(i -> i == n).findFirst().map(list::indexOf).orElse(-1);
     }
 
     private static int searchMaxList(List<Integer> list) {
@@ -46,14 +54,14 @@ public class BinarySearch {
         int l = 0;
         int r = list.size();
         while (l <= r) {
-//        for (int i = 0; i < (list.size()) / 2; i++) {
-            int p = (l + r) / 2;
-            if (list.get(p) == n) {
-                return p;
-            } else if (list.get(p) > n) {
-                r = p - 1;
+            int mid = (l + r) / 2;
+            int midValue = list.get(mid);
+            if (midValue == n) {
+                return mid;
+            } else if (midValue > n) {
+                r = mid - 1;
             } else {
-                l = p + 1;
+                l = mid + 1;
             }
         }
         return -1;
