@@ -54,14 +54,14 @@ public class BinarySearch {
         int l = 0;
         int r = list.size();
         while (l <= r) {
-            int mid = (l + r) / 2;
-            int midValue = list.get(mid);
+            int midIndex = (l + r) / 2;
+            int midValue = list.get(midIndex);
             if (midValue == n) {
-                return mid;
+                return midIndex;
             } else if (midValue > n) {
-                r = mid - 1;
+                r = midIndex - 1;
             } else {
-                l = mid + 1;
+                l = midIndex + 1;
             }
         }
         return -1;

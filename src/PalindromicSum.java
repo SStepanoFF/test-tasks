@@ -1,9 +1,10 @@
 import java.util.stream.IntStream;
 
-public class Test {
+public class PalindromicSum {
 
     public static void main(String[] args) {
         System.out.println(sumPalindromic(10000));
+        System.out.println("Text is palindromic: " + reverseCheckPalindromic("radarq"));
     }
 
     public static int sumPalindromic(int range) {
@@ -19,5 +20,10 @@ public class Test {
             }
         }
         return result;
+    }
+
+    private static boolean reverseCheckPalindromic(String text) {
+        String reverseText = new StringBuilder(text).reverse().toString();
+        return text.equals(reverseText);
     }
 }

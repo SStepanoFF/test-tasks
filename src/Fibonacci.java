@@ -1,7 +1,8 @@
 public class Fibonacci {
 
     public static void main(String[] args) {
-        System.out.println(oddSumFibonacci(10000));
+//        System.out.println(oddSumFibonacci(10000));
+        printFibonacci(30);
     }
 
     private static int oddSumFibonacci(int n) {
@@ -20,5 +21,15 @@ public class Fibonacci {
             }
         }
         return res;
+    }
+
+    private static void printFibonacci(int n) {
+        int n0 = 0, n1 = 1;
+        for (int i = 0; i <= n; i++) {
+            System.out.print(n0 + " ");
+            int nextEl = n0 + n1;
+            n0 = n1;
+            n1 = nextEl;
+        }
     }
 }
